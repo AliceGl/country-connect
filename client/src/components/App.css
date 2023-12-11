@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+  color: #0d0d0d;
+  background-color: #EDEADB;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 67px 1fr;
+}
+
+.modalButton {
+  border-radius: 10px;
+  font-size: 14px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+
+  background-color: #0C1B23;
+  color: #EDEADB;
+}
+
+.modalButton:hover {
+  background-color: transparent;
+  border-color: #0C1B23;
+  border-style: solid;
+  color: #0C1B23;
+  cursor: pointer;
+
+  border-style: inset;
+}

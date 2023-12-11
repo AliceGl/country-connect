@@ -1,0 +1,40 @@
+.barIcon {
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.barIcon:hover {
+    background-color: #EDEADB;
+    cursor: pointer;
+}
+
+.barIcon svg {
+    height: 30px;
+    width: 30px;
+}
+
+.barIcon svg path {
+    fill: #EDEADB
+}
+
+.barIcon:hover svg path {
+    fill: #0C1B23
+}
+
+.firstIcon {
+    margin-left: auto;
+}
+.lastIcon {
+    margin-right: 30px;
+}
+
+#tooltip {
+    font-size: 14px;
+    color: #EDEADB;
+    background-color: #0C1B23;
+  }

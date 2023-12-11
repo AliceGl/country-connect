@@ -1,0 +1,42 @@
+.gameScreen {
+    grid-row: 2;
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 210px 1fr;
+}
+
+.mapPart {
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+.inputPart {
+    grid-column: 2;
+    grid-row: 1;
+
+    font-size: 14px;
+}
+
+.guessesPart {
+    grid-column: 2;
+    grid-row: 2;
+
+    font-size: 14px;
+
+    margin-left: 50px;
+    margin-top: 20px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-y: visible;
+}

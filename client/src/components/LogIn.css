@@ -1,0 +1,31 @@
+.logIn {
+    min-height: 0%;
+    height: fit-content;
+}
+
+.logIn .modalBody {
+    display: flex;
+    flex-direction: row nowrap;
+    justify-content: space-evenly;
+}
+
+.logIn .modalButton {
+    height: 50px;
+    width: 100px;
+}
+
+
+.logIn .inputField {
+    height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    padding: 0 25px;
+
+    font: inherit;
+
+    color: #0D0D0D;
+    background-color: #EDEADB;
+    border-color: #636770;
+}

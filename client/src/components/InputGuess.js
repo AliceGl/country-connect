@@ -32,9 +32,18 @@ function InputGuess() {
             setCountry("")
         }
     }
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            if (country === results[0]) {
+                guess();
+            } else {
+                setCountry(results[0]);
+            }
+        }
+    }
     return (
         <div className="inputGuess">
-            <input placeholder="Enter a country, territory..." value={country} className="guessField" onChange={handleOnChange}/>
+            <input placeholder="Enter a country, territory..." value={country} className="guessField" onChange={handleOnChange} onKeyDown={handleKeyDown}/>
             <div className="guessButton" onClick={guess}>Guess ({currentGame.guesses.length}/{maxGuesses})</div>
             <div className="countryList">
                 {results.map((result) =>

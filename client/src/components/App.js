@@ -155,13 +155,14 @@ function App() {
 
   return (
     <div className="App">
+      <AppContext.Provider value={{currentGame, gameState: gameData.gameState, countryStates: gameData.countryStates, maxGuesses: gameData.maxGuesses, submitGuess, newGame }}>
+        <GameScreen />
+
       <Header 
         showStats={() => {setStatsVisible(true)}}
         showRules={() => {setRulesVisible(true)}} 
         showSettings={() => {setSettingsVisible(true)}}
       />
-      <AppContext.Provider value={{currentGame, gameState: gameData.gameState, countryStates: gameData.countryStates, maxGuesses: gameData.maxGuesses, submitGuess, newGame }}>
-        <GameScreen />
 
       <Modal title='Statistics' show={statsVisible} onClose={() => {setStatsVisible(false)}} ><Stats /></Modal>
       <Modal title='How to Play' show={rulesVisible} onClose={() => {setRulesVisible(false)}} ><Rules /></Modal>

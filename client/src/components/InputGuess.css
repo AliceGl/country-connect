@@ -75,7 +75,8 @@
     border-style: solid;
 
     overflow-y: scroll;
-    padding: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     text-align: left;
 }
 

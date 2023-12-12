@@ -1,0 +1,11 @@
+.countryOption {
+    width: 100% - 40px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.countryOption:hover {
+    background-color: #E4B53130;
+    cursor: pointer;
+}

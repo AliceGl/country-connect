@@ -17,10 +17,40 @@
     height: 30px;
     width: 30px;
     border-radius: 10px;
-    background-color: #E4B531;
+
+    border-style: outset;
+    border-width: 3px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 .guessText {
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.correctCheckmark {
+    fill: #EDEADB;
+}
+
+.guessType.type0 {
+    background-color: #4A6F5E;
+    border-color: #4A6F5E;
+}
+
+.guessType.type1 {
+    background-color: #E4B531;
+    border-color: #E4B531;
+}
+
+.guessType.type2 {
+    background-color: #B56B19;
+    border-color: #B56B19;
+}
+
+.guessType.type3 {
+    background-color: #0D0D0D;
+    border-color: #0D0D0D;
 }

@@ -40,3 +40,60 @@
     align-content: flex-start;
     overflow-y: visible;
 }
+
+.textWrapper {
+    width: 100%;
+    position: relative;
+}
+
+.taskText {
+    font-size: 18px;
+}
+
+.textFrom {
+    color: #DA9907;
+}
+
+.textTo {
+    color: #658467;
+}
+
+.newGame {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(-16px) translateX(20px);
+
+    height: 50px;
+    width: 50px;
+    background-color: #0C1B23;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.newGame:hover {
+    background-color: #EDEADB;
+
+    border-style: inset;
+    border-color: #0C1B23;
+    border-width: 2px;
+
+    cursor: pointer;
+}
+
+.newGame .reloadIcon {
+    fill: #EDEADB;
+    height: 30px;
+    width: 30px;
+}
+
+.newGame:hover .reloadIcon {
+    fill: #0C1B23;
+}

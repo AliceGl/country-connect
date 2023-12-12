@@ -1,10 +1,13 @@
 import './Guess.css'
+import { ReactComponent as Checkmark } from './../svg/correct.svg'
 
-function Guess() {
+function Guess({country, type}) {
     return (
         <div className='guess'>
-            <div className='guessType'></div>
-            <div className='guessText'>Guess</div>
+            <div className={'guessType type' + type}>
+                {type === 0 && <Checkmark className='correctCheckmark'/>}
+            </div>
+            <div className='guessText'>{country}</div>
         </div>
     )
 }

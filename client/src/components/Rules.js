@@ -26,6 +26,7 @@ function Rules() {
                     <p>Your guess is on a different continent or <br/> landmass 🤦.</p>
                 </li>
             </ul>
+            The number of guesses you get equals to the minimal number of guesses plus 5. If you guess in minimal amount of guesses, you get 6 points, if you needed one extra guess - 5 points etc. If you ran out of guesses you get 0 points.
             <h4>What counts as a country?</h4>
             Map includes some countries that are disputed, splits some countries up e.g. French Guiana is seperate to France, and does not include some small countries e.g. Vatican. When in doubt look at the countries list under the guess field!
             <h4>What if I can't connect the countries?</h4>

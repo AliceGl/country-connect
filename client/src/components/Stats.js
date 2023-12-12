@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Stats.css'
 import Axios from 'axios';
 import Cookies from 'universal-cookie';
+import { AppContext, serverAddress } from './App';
 
 function Stats() {
     const cookies = new Cookies();
     const userData = cookies.get('userData');
     const [stats, setStats] = useState({});
+    const { currentGame } = useContext(AppContext);
+
+    useEffect(() => {
+        updateStats();
+    }, [currentGame]);
 
     function sortedStats() {
         const items = []
@@ -36,7 +42,7 @@ function Stats() {
     }
 
     function updateStats() {
-        Axios.get("http://localhost:3001/getStats")
+        Axios.get(`${serverAddress}/getStats`)
         .then(val => {
             setStats(val.data)
         })
@@ -53,10 +59,9 @@ function Stats() {
         )
     }
 
-    updateStats();
-
     return (
         <div className='stats'>
+            <div className='modalButton' onClick={updateStats}>Update</div>
             { getUserResult() }
             <h4>Scoreboard</h4>
             <table className='scoreboard'>

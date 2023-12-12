@@ -3,6 +3,7 @@ import Modal from './Modal'
 import { useState } from 'react'
 import Axios from 'axios'
 import Cookies from 'universal-cookie'
+import { serverAddress } from './App'
 
 function LogIn() {
     const cookies = new Cookies()
@@ -12,7 +13,7 @@ function LogIn() {
     const [user, setUser] = useState(null)
 
     const save = () => { 
-        Axios.post("http://localhost:3001/login", {username: user}).then(res => {
+        Axios.post(`${serverAddress}/login`, {username: user}).then(res => {
             const {userId, username} = res.data;
 
             cookies.set("userData", {userId, username});

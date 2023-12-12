@@ -12,6 +12,7 @@ import { countryStatesDefault, countriesDist, countryNames, defaultMatrix, possi
 import Axios from 'axios';
 
 export const AppContext = createContext();
+export const serverAddress = "https://country-connect-server.onrender.com";
 
 function generateLevel() {
   const id = Math.floor(Math.random() * possiblePlayPairs.length)
@@ -149,7 +150,7 @@ function App() {
   }
 
   function sendGameResult(result) {
-    Axios.post("http://localhost:3001/recordGame", { userId: cookies.get('userData').userId, gameResult: result });
+    Axios.post(`${serverAddress}/recordGame`, { userId: cookies.get('userData').userId, gameResult: result });
   }
 
   return (
@@ -161,11 +162,12 @@ function App() {
       />
       <AppContext.Provider value={{currentGame, gameState: gameData.gameState, countryStates: gameData.countryStates, maxGuesses: gameData.maxGuesses, submitGuess, newGame }}>
         <GameScreen />
-      </AppContext.Provider>
 
       <Modal title='Statistics' show={statsVisible} onClose={() => {setStatsVisible(false)}} ><Stats /></Modal>
       <Modal title='How to Play' show={rulesVisible} onClose={() => {setRulesVisible(false)}} ><Rules /></Modal>
       <Modal title='Settings' show={settingsVisible} onClose={() => {setSettingsVisible(false)}} ></Modal>
+
+      </AppContext.Provider>
 
       <LogIn />
     </div>

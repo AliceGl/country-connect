@@ -23,3 +23,8 @@
     background-color: #EDEADBC0;
     font-style: italic;
 }
+
+.stats .modalButton {
+    height: 30px;
+    width: 100px;
+}

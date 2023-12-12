@@ -1,0 +1,19 @@
+.rules h4 {
+    font-size: 16px;
+}
+
+.guessesList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.guessesList li {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.rules .guessType {
+    margin: 10px;
+}

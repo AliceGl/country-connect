@@ -1,7 +1,7 @@
 import './Modal.css'
 import {ReactComponent as Close} from './../svg/close.svg'
 
-function Modal({ title, show, onClose, noClose=false, children, className}) {
+function Modal({ title, show, onClose, noClose=false, children, className="", size='big'}) {
     return (
         <div className={"modalBackground" + (show ? " modal-show" : "")} onClick={onClose}>
             <div className={className + ' modal'} onClick={(e) => e.stopPropagation()}>
@@ -13,7 +13,7 @@ function Modal({ title, show, onClose, noClose=false, children, className}) {
                         </div>
                     }
                 </div>
-                <div className='modalBody'>
+                <div className={'modalBody ' + size}>
                     {children}
                 </div>
             </div>

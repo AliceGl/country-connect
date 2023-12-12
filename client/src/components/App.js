@@ -2,6 +2,7 @@ import './App.css';
 import Header from './Header.js';
 import Modal from './Modal.js';
 import GameScreen from './GameScreen.js';
+import Rules from './Rules.js';
 import { useEffect, useState } from 'react';
 import LogIn from './LogIn.js';
 import Cookies from 'universal-cookie';
@@ -151,7 +152,7 @@ function App() {
       </AppContext.Provider>
 
       <Modal title='Statistics' show={statsVisible} onClose={() => {setStatsVisible(false)}} ></Modal>
-      <Modal title='How to Play' show={rulesVisible} onClose={() => {setRulesVisible(false)}} ></Modal>
+      <Modal title='How to Play' show={rulesVisible} onClose={() => {setRulesVisible(false)}} ><Rules /></Modal>
       <Modal title='Settings' show={settingsVisible} onClose={() => {setSettingsVisible(false)}} ></Modal>
 
       <LogIn />

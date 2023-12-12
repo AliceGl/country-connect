@@ -21,7 +21,7 @@ function LogIn() {
         setVisible(false)
     }
     return (
-        <Modal className="logIn" title="What is your name?" show={visible} onClose={() => {}} noClose={true}>
+        <Modal className="logIn" title="What is your name?" show={visible} onClose={() => {}} noClose={true} size='small'>
             <input className="inputField" placeholder="Type it here..." onChange={(e) => {
                 setUser(e.target.value)
             }} />

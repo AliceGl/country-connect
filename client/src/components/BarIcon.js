@@ -1,7 +1,6 @@
 import './BarIcon.css'
 import {ReactComponent as Stats} from './../svg/stats.svg'
 import {ReactComponent as Rules} from './../svg/rules.svg'
-import {ReactComponent as Settings} from './../svg/settings.svg'
 import { Tooltip } from 'react-tooltip'
 
 
@@ -16,8 +15,7 @@ function BarIcon({name, description, onClick, isFirst = false, isLast = false}) 
         data-tooltip-content={description}
         data-tooltip-place='bottom'>
             {(name === 'stats' && <Stats/>) || 
-            (name === 'rules' && <Rules/>) ||
-            (name === 'settings' && <Settings/>)}
+            (name === 'rules' && <Rules/>)}
 
             <Tooltip id={"tooltip"} className='tooltip'/>
         </div>

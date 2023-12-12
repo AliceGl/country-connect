@@ -76,7 +76,6 @@ function App() {
 
   const [statsVisible, setStatsVisible] = useState(false);
   const [rulesVisible, setRulesVisible] = useState(false);
-  const [settingsVisible, setSettingsVisible] = useState(false);
 
   const [currentGame, setCurrentGame] = useState(cookies.get("currentGame"));
 
@@ -160,13 +159,11 @@ function App() {
 
       <Header 
         showStats={() => {setStatsVisible(true)}}
-        showRules={() => {setRulesVisible(true)}} 
-        showSettings={() => {setSettingsVisible(true)}}
+        showRules={() => {setRulesVisible(true)}}
       />
 
       <Modal title='Statistics' show={statsVisible} onClose={() => {setStatsVisible(false)}} ><Stats /></Modal>
       <Modal title='How to Play' show={rulesVisible} onClose={() => {setRulesVisible(false)}} ><Rules /></Modal>
-      <Modal title='Settings' show={settingsVisible} onClose={() => {setSettingsVisible(false)}} ></Modal>
 
       </AppContext.Provider>
 

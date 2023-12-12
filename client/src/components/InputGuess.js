@@ -34,10 +34,12 @@ function InputGuess() {
     }
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            if (country === results[0]) {
-                guess();
-            } else {
-                setCountry(results[0]);
+            if (results.length > 0) {
+                if (country === results[0]) {
+                    guess();
+                } else {
+                    setCountry(results[0]);
+                }
             }
         }
     }

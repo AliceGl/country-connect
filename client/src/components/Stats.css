@@ -1,0 +1,25 @@
+.stats h4 {
+    font-size: 16px;
+}
+
+.scoreboard, .scoreboard th, .scoreboard td  {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #0C1B23;
+    border-radius: 5px;
+}
+
+.scoreboard {
+    width: 100%;
+    background-color: #9CA49B;
+}
+
+.scoreboard th, .scoreboard td {
+    padding: 5px;
+    background-color: #EDEADB;
+}
+
+.scoreboard th {
+    background-color: #EDEADBC0;
+    font-style: italic;
+}

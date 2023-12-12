@@ -6,17 +6,16 @@ import Cookies from 'universal-cookie'
 
 function LogIn() {
     const cookies = new Cookies()
-    const username = cookies.get('username');
+    const userData = cookies.get('userData');
 
-    const [visible, setVisible] = useState(username === undefined);
+    const [visible, setVisible] = useState(userData === undefined);
     const [user, setUser] = useState(null)
 
     const save = () => { 
         Axios.post("http://localhost:3001/login", {username: user}).then(res => {
             const {userId, username} = res.data;
 
-            cookies.set("username", username);
-            cookies.set("userId", userId);
+            cookies.set("userData", {userId, username});
         })
         setVisible(false)
     }

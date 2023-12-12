@@ -3,11 +3,13 @@ import Header from './Header.js';
 import Modal from './Modal.js';
 import GameScreen from './GameScreen.js';
 import Rules from './Rules.js';
+import Stats from './Stats.js';
 import { useEffect, useState } from 'react';
 import LogIn from './LogIn.js';
 import Cookies from 'universal-cookie';
 import { createContext } from 'react';
 import { countryStatesDefault, countriesDist, countryNames, defaultMatrix, possiblePlayPairs } from '../data.js';
+import Axios from 'axios';
 
 export const AppContext = createContext();
 
@@ -124,7 +126,13 @@ function App() {
           return false;
         }
         const new_guesses = [...currentGame.guesses];
+        const guess = {country: country, type: calculateGuessType(country, gameData.matrix, currentGame)};
         new_guesses.push({country: country, type: calculateGuessType(country, gameData.matrix, currentGame)});
+        if (gameData.matrix.get(currentGame.from).get(currentGame.to) === 1 && guess.type === 0) {
+          sendGameResult(gameData.maxGuesses - new_guesses.length + 1);
+        } else if (new_guesses.length === gameData.maxGuesses) {
+          sendGameResult(0);
+        }
         setCurrentGame({ 
           ...currentGame,
           guesses: new_guesses
@@ -140,6 +148,10 @@ function App() {
     setCurrentGame(generateLevel());
   }
 
+  function sendGameResult(result) {
+    Axios.post("http://localhost:3001/recordGame", { userId: cookies.get('userData').userId, gameResult: result });
+  }
+
   return (
     <div className="App">
       <Header 
@@ -151,7 +163,7 @@ function App() {
         <GameScreen />
       </AppContext.Provider>
 
-      <Modal title='Statistics' show={statsVisible} onClose={() => {setStatsVisible(false)}} ></Modal>
+      <Modal title='Statistics' show={statsVisible} onClose={() => {setStatsVisible(false)}} ><Stats /></Modal>
       <Modal title='How to Play' show={rulesVisible} onClose={() => {setRulesVisible(false)}} ><Rules /></Modal>
       <Modal title='Settings' show={settingsVisible} onClose={() => {setSettingsVisible(false)}} ></Modal>
 

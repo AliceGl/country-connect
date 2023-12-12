@@ -32,3 +32,29 @@
 
   border-style: inset;
 }
+
+.alert {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: auto;
+  background-color: #E4B531;
+  color: #0D1C25;
+  border-radius: 10px;
+  height: 30px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+
+  opacity: 0;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+.alertShow {
+  opacity: 1;
+}

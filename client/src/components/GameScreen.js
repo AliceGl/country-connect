@@ -20,7 +20,6 @@ function GameScreen() {
         const answer = countriesDist.get(currentGame.from).get(currentGame.to);
         var solution = countryNames.get(currentGame.from)
         var lastCountry = currentGame.from
-        console.log(answer);
         for (var i = 0; i < answer; i += 1) {
             for (var country of countryNames.keys()) {
                 if (countriesDist.get(currentGame.to).get(country) === answer - i - 1 && countriesDist.get(lastCountry).get(country) === 0) {

@@ -4,7 +4,7 @@ import Modal from './Modal.js';
 import GameScreen from './GameScreen.js';
 import Rules from './Rules.js';
 import Stats from './Stats.js';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import LogIn from './LogIn.js';
 import Cookies from 'universal-cookie';
 import { createContext } from 'react';
@@ -111,18 +111,18 @@ function App() {
 
   function submitGuess(countryName) {
     if (gameData.gameState !== 0) {
-      alert('game is over');
+      showAlert('Game is over!');
       return false;
     }
     for (var country of countryNames.keys()) {
       if (countryNames.get(country).toLowerCase() === countryName.toLowerCase()) {
         const state = gameData.countryStates.get(country);
         if (state === 'from' || state === 'to') {
-          alert('cannot guess start or end countries');
+          showAlert(`Cannot guess start or end countries: ${countryName}.`);
           return false;
         }
         if (state === 'guessed') {
-          alert('you already guessed this country');
+          showAlert(`You already guessed this country: ${countryName}.`);
           return false;
         }
         const new_guesses = [...currentGame.guesses];
@@ -140,7 +140,7 @@ function App() {
         return true;
       }
     }
-    alert('unknown country name');
+    showAlert(`Unknown country name: ${countryName}`);
     return false;
   }
 
@@ -150,6 +150,20 @@ function App() {
 
   function sendGameResult(result) {
     Axios.post(`${serverAddress}/recordGame`, { userId: cookies.get('userData').userId, gameResult: result });
+  }
+
+  const [alertText, setAlertText] = useState()
+  const [alertVisible, setAlertVisible] = useState(false);
+
+  var timeoutId = useRef(null)
+
+  function showAlert(text) {
+    clearTimeout(timeoutId.current);
+    setAlertText(text)
+    setAlertVisible(true);
+    timeoutId .current = setTimeout(() => {
+      setAlertVisible(false);
+    }, 1500)
   }
 
   return (
@@ -168,6 +182,8 @@ function App() {
       </AppContext.Provider>
 
       <LogIn />
+
+      <div className={'alert' + (alertVisible ? ' alertShow' : '')}>{alertText}</div>
     </div>
   );
 }
